@@ -1,8 +1,6 @@
-# 🎵 Music Emotional Aura Pipeline
+# 🎵 Sonic Vibe — Music Sentiment Analysis
 
-A CPU-optimized, multimodal AI pipeline that analyzes audio clips to determine their **Emotional Aura**, explains the decision using **SHAP**, and generates brand-aligned social media content via a local **LLM (Ollama)**.
-
-Built for **Questline Forge**.
+A CPU-optimized, multimodal AI pipeline that analyzes audio clips to determine their **Sonic Vibe**, explains the decision using **SHAP**, and generates deep-dive sonic insights via a local **LLM (Ollama)**.
 
 ---
 
@@ -20,13 +18,13 @@ Audio File (WAV/MP3)
        ▼
 ┌──────────────────┐
 │    train.py      │  Random Forest Classifier (100 trees)
-│    5 Aura Labels │  Trained on synthetic data (100 samples)
+│    5 Vibe Labels │  Trained on synthetic data (100 samples)
 └──────┬───────────┘
        │
        ├──────────────────────┐
        ▼                      ▼
 ┌──────────────┐     ┌────────────────┐
-│  SHAP        │     │  Aura          │
+│  SHAP        │     │  Vibe          │
 │  Explainer   │     │  Prediction    │
 │  (Top 3)     │     │                │
 └──────┬───────┘     └───────┬────────┘
@@ -35,7 +33,7 @@ Audio File (WAV/MP3)
                   ▼
          ┌────────────────┐
          │   agent.py     │  Ollama / Llama 3.2
-         │   LLM Copy     │  Instagram + YouTube
+         │   LLM Copy     │  Song Title Generation
          └────────────────┘
 ```
 
@@ -50,7 +48,7 @@ Audio File (WAV/MP3)
 pip install -r requirements.txt
 ```
 
-### 2. Install Ollama (for LLM content generation)
+### 2. Install Ollama (for LLM title generation)
 
 ```bash
 # Download from https://ollama.com/download
@@ -77,15 +75,15 @@ python main.py --audio path/to/your/track.wav
 
 The pipeline will:
 1. Extract 28 audio features
-2. Predict the Emotional Aura
+2. Predict the Sonic Vibe
 3. Explain the decision via SHAP
-4. Generate Instagram + YouTube copy via Llama 3.2
+4. Generate AI-driven song titles via Llama 3.2
 
 ---
 
-## The 5 Emotional Auras
+## The 5 Sonic Vibes
 
-| Aura | Color | Signature | Audio Profile |
+| Vibe | Color | Signature | Audio Profile |
 |------|-------|-----------|---------------|
 | **Obsidian** | 🟣 | Melancholic | Low tempo (60-80 BPM), dark tone, minor key, quiet |
 | **Solaris** | 🟡 | High Energy | Fast (130-160 BPM), bright tone, major key, loud |
@@ -95,19 +93,19 @@ The pipeline will:
 
 ---
 
-## Audio Features → Color Auras: Mapping Logic
+## Audio Features → Color Vibes: Mapping Logic
 
 The mapping operates at two levels:
 
 ### Level 1: Training Data (Domain Knowledge Encoding)
 
-Each aura has a **hand-crafted Gaussian profile** defining expected mean and standard deviation for all 28 features. This embeds music psychology research into the model:
+Each vibe has a **hand-crafted Gaussian profile** defining expected mean and standard deviation for all 28 features. This embeds music psychology research into the model:
 
 - **MFCCs (1-13)**: Capture timbral "texture." Melancholic music tends toward smoother spectral envelopes (higher MFCC-1 values), while aggressive music shows sharper, more jagged spectral variation.
 
 - **Spectral Centroid**: The perceived "brightness" of sound. Ambient/melancholic tracks cluster around 1500-2200 Hz, while aggressive tracks push above 4000 Hz.
 
-- **Chroma Features (12 bins)**: Encode pitch-class energy distribution. Minor-key bias (boosted bins at scale degrees ♭2, ♭3, ♭6, ♭7) correlates with melancholic auras. Major-key bias (boosted root, M3, P5) correlates with nostalgic/high-energy auras.
+- **Chroma Features (12 bins)**: Encode pitch-class energy distribution. Minor-key bias (boosted bins at scale degrees ♭2, ♭3, ♭6, ♭7) correlates with melancholic vibes. Major-key bias (boosted root, M3, P5) correlates with nostalgic/high-energy vibes.
 
 - **Tempo**: Direct mapping — slow (< 80 BPM) → calm/melancholic; mid (90-120) → nostalgic; fast (> 130) → energetic/aggressive.
 
@@ -130,9 +128,10 @@ Example output:
 ├── train.py            # Module 2: Synthetic data generation + RF training
 ├── agent.py            # Module 3+4: SHAP explainability + Ollama LLM
 ├── main.py             # CLI orchestrator
+├── app.py              # Streamlit Premium Dashboard
 ├── requirements.txt    # Python dependencies
 ├── models/             # Saved model artifacts (auto-created)
-│   └── aura_model.pkl
+│   └── vibe_model.pkl
 └── README.md           # This file
 ```
 
@@ -153,11 +152,11 @@ python agent.py      # Tests SHAP + Ollama on synthetic data
 ## Requirements
 
 - Python 3.10+
-- Ollama with Llama 3.2 (for content generation)
+- Ollama with Llama 3.2 (for title generation)
 - No GPU required — fully CPU-optimized
 
 ---
 
 ## License
 
-Built for Questline Forge. All rights reserved.
+© 2026 SONIC VIBE. All rights reserved.

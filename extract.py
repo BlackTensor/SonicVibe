@@ -101,7 +101,7 @@ if __name__ == "__main__":
     sine_wave = 0.5 * np.sin(2 * np.pi * 440 * t)
 
     import soundfile as sf, tempfile, os
-    tmp_path = os.path.join(tempfile.gettempdir(), "_aura_test.wav")
+    tmp_path = os.path.join(tempfile.gettempdir(), "_vibe_test.wav")
     sf.write(tmp_path, sine_wave, SAMPLE_RATE)
 
     feats = extract_features(tmp_path)

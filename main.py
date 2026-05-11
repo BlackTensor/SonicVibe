@@ -27,7 +27,7 @@ def print_banner():
     print("  " + "=" * 55)
     print("  |                                                     |")
     print("  |   Music Sentiment Vibe Pipeline                     |")
-    print("  |   by Questline Forge                                |")
+    print("  |   by Sonic Vibe                                     |")
     print("  |                                                     |")
     print("  " + "=" * 55)
     print()
